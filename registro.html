@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="icon" type="image/png" href="/images/icon.png" />
+  <title>Registro de perritos</title>
+
+  <!--Referencias de bootstrap-->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  
+  <!--Referencia a la hoja de estilos-->
+
+  <link rel="stylesheet" href="../styles/styleR.css" />
+
+  <!--Script para el motor de busqueda en la tabla de registros-->
+
+  
+</head>
+<div id="container">
+  <nav>
+      <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="registro.html">Registra perritos <i class="down"></i></a></li>
+          <li><a href="adopcion.html">Adopta perritos <i class="down"></i></a></li>
+      </ul>
+  </nav>
+</div>
+<body>
+  <main>
+    <img class = "principal" src="../images/registra.png"><br><br>
+    <div class="container text-center">
+      <div class="d-flex justify-content-center">
+
+        <!--Formulario donde se llenará con los datos de los perriros-->
+    
+        <form class="w-50">
+          <input type="text" id="did" class="form-control" autocomplete="off" hidden/>
+          <input type="text" class="form-control" autocomplete="off" readonly placeholder="Raza" />
+          <select name="menu" id="raza" class="form-control">
+            <option value="Fresh Pool" selected>Fresh Pool</option>
+            <option value="Airedale Terrier">Airedale Terrier</option>
+            <option value="Beagle">Beagle</option>
+            <option value="Boston Terrier">Boston Terrier</option>
+            <option value="Braco">Braco</option>
+            <option value="Border Collie">Border Collie</option>
+            <option value="Bull Terrier">Bull Terrier</option>
+            <option value="Bulldog">Bulldog</option>
+            <option value="Chihuahua">Chihuahua</option>
+            <option value="Chow chow">Chow chow</option>
+            <option value="Cocker">Cocker</option>
+            <option value="Dálmata">Dálmata</option>
+            <option value="Doberman">Doberman</option>
+            <option value="Dogo Aleman">Dogo Aleman</option>
+            <option value="Galgo Español">Galgo Español</option>
+            <option value="Galgo Inglés">Galgo Inglés</option>
+            <option value="Golden Retrevier">Golden Retrevier</option>
+            <option value="Gran dánes">Gran dánes</option>
+            <option value="Husky Siberiano">Husky Siberiano</option>
+            <option value="Jack Rusell Terrier">Jack Rusell Terrier</option>
+            <option value="Labrador">Labrador</option>
+            <option value="Leongerger">Leongerger</option>
+            <option value="Maltés">Maltés</option>
+            <option value="Manchester Terrier">Manchester Terrier</option>
+            <option value="Mastin">Mastin</option>
+            <option value="Pastor Alemán">Pastor Alemán</option>
+            <option value="Pekinés">Pekinés</option>
+            <option value="Pitbull">Pitbull</option>
+            <option value="Podenco">Podenco</option>
+            <option value="Pointer">Pointer</option>
+            <option value="Pomeriana">Pomeriana</option>
+            <option value="Poodle">Poodle</option>
+            <option value="Pug">Pug</option>
+            <option value="Rottweiler">Rottweiler</option>
+            <option value="Saluki">Saluki</option>
+            <option value="San Bernardo">San Bernardo</option>
+            <option value="Sabueso">Sabueso</option>
+            <option value="Salchicha">Salchicha</option>
+            <option value="Schnauzer">Schnauzer</option>
+            <option value="Xoloitzcuintle">Xoloitzcuintle</option>
+            <option value="Yorkie Terrier">Yorkie Terrier</option>
+            <option value="Mestizo">Mestizo</option>
+            <option value="Otro">Otro</option>
+          </select>
+          <input type="text" id="lugar" class="form-control" autocomplete="off" placeholder="Lugar donde se encuentra el perrito"/>
+          <input type="text" id="color" class="form-control" autocomplete="off" placeholder= "Color" />
+          <input type="number" id="edad" class="form-control" autocomplete="off"  placeholder="Edad (en años)" min="0" max="25"/>
+          <input type="text" class="form-control" autocomplete="off" readonly placeholder="Vacunado contra la rabia" />
+          <select name="menu1" id="vacuna" class="form-control">
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+            <option value="Sin información">No sé</option>
+          </select>
+          <input type="text" class="form-control" autocomplete="off" readonly placeholder="Sexo" />
+          <select name="menu2" id="sexo" class="form-control">
+            <option value="Macho">Macho</option>
+            <option value="Hembra">Hembra</option>
+          </select>
+        </form>
+      </div>
+
+      <!--Parte de los botones para eventos-->
+
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-success" id="btn-create">Añadir Perrito</button>
+        <button class="btn btn-primary" id="btn-read">Ver todos los perritos</button>
+        <button class="btn btn-danger" id="btn-delete">Eliminar todos los registros</button>
+      </div>
+
+      <!--  Tabla que será llenada -->
+
+      <div class="d-flex table-data">
+        <table class="table order-table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Raza</th>
+              <th scope="col">Lugar</th>
+              <th scope="col">Edad</th>
+              <th scope="col">Sexo</th>
+              <th scope="col">Color</th>
+              <th scope="col">Vacunado</th>
+              <th scope="col">Eliminar</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+          </tbody>
+        </table>
+      </div>
+      <div id="notfound"></div>
+    </div>
+  </main>
+
+  <!--Referencias de Dexie-->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+
+  <!--Link del script de indexedDB-->
+  <script src="../js/main.js" type="module"></script>
+</body>
+
+<footer>
+  <p>CONTACTO</p>
+  <p>Teléfono:(+52)55 7687 8990</p>
+  <p>Correo: adopciones@gmail.com</p>
+</footer>
+
+</html>
